@@ -1,18 +1,13 @@
 import React from 'react';
-export const tasks = [
+export var tasks = [
   {
     title: "Task1",
-    isColorTag: true,
-    defaultChecked: false,
-    indicators: [
-      "icon-description",
-      "icon-chat",
-    ],
+    color: '#4e42c3',
+    hasDescription: true,
+    commentsCount: 2,
   },
   {
     title: "Task2",
-    isColorTag: false,
-    defaultChecked: false,
     customFields: [
       <div className="custom-field custom-field-single">
         <p className="color-light has-color-tag">
@@ -24,34 +19,22 @@ export const tasks = [
   },
   {
     title: "Task3",
-    isColorTag: false,
-    defaultChecked: false,
-    indicators: [
-      "icon-description",
-      "icon-attach",
-    ]
+    hasDescription: true,
+    filesCount: 3,
   },
   {
     title: "Task4",
-    isColorTag: false,
-    defaultChecked: false,
-    indicators: [
-      "icon-description",
-      "icon-chat",
-      "icon-timer",
-    ]
+    hasDescription: true,
+    commentsCount: 2,
+    "icon-timer": 2,
   },
   {
     title: "Task5",
-    isColorTag: false,
-    defaultChecked: true,
+    status: "complete",
   },
   {
     title: "Task6",
-    isColorTag: false,
-    defaultChecked: true,
-    indicators: [
-      "icon-chat",
-    ]
+    commentsCount: 2,
+    status: "complete",
   }
 ];

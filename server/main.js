@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import { Tasks } from '/imports/api/tasks';
+import {getTask} from '../imports/api/tasks/methods/get';
+import {createTask} from '../imports/api/tasks/methods/create';
+import {Tasks} from '/imports/api/tasks';
 
 const testData = [
   {
@@ -42,8 +44,19 @@ const testData = [
   }
 ];
 
-Meteor.startup(() => {
+Meteor.startup(async () => {
+  console.log(Tasks.find().count());
   if (Tasks.find().count() === 0) {
     testData.forEach(task => Tasks.insert(task));
   }
+  Tasks.allow({
+    insert: function () {
+      return true;
+    }
+  });
+});
+
+Meteor.methods({
+  'insertTask': createTask,
+  'getTask': getTask
 });
