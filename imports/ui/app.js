@@ -8,13 +8,9 @@ const App = () => {
   const [taskDatas, setTaskDatas] = useState(tasks);
   useEffect(() => {
     Meteor.call('getTask', {hasDescription: false}, function (error, result) {
-      if (error) {
-        console.log(error);
-      }
-      else {
-        setTaskDatas(result);
-      }
-    } );
+      if (error) console.log(error);
+      else setTaskDatas(result);
+    });
   }, []);
 
   const createTask = (taskData) => {
@@ -22,12 +18,8 @@ const App = () => {
       if (error) console.log(error);
       else {
         Meteor.call('getTask', {hasDescription: false}, function (error, result) {
-          if (error) {
-            console.log(error);
-          }
-          else {
-            setTaskDatas(result);
-          }
+          if (error) console.log(error);
+          else setTaskDatas(result);
         });
       };
     });
